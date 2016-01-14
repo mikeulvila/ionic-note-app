@@ -32,7 +32,8 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directiv
     .state('menu', {
       url: '/side-menu21',
       abstract:true,
-      templateUrl: 'templates/menu.html'
+      templateUrl: 'templates/menu.html',
+      controller: 'addCtrl'
     })
 
 
@@ -42,8 +43,17 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directiv
       url: '/page1',
       views: {
         'side-menu21': {
-          templateUrl: 'templates/page.html',
-          controller: 'pageCtrl'
+          templateUrl: 'templates/page.html'
+        }
+      }
+    })
+
+    .state('menu.view-note', {
+      url: '/view-note/{timeStamp}',
+      views: {
+        'side-menu21': {
+          templateUrl: 'templates/viewNote.html',
+          controller: 'addCtrl'
         }
       }
     })

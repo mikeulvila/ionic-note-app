@@ -15,6 +15,7 @@
         <ion-content padding="false" class="side-menu-left has-header" <="" ion-content="">
             <ion-list>
                 <ion-item href="#/side-menu21/add-note" menu-close="">Add Note</ion-item>
+                <ion-item href="#/side-menu21/view-note/{{note.id}}" ng-repeat="note in menuNotes" menu-close="">{{note.title}}</ion-item>
             </ion-list>
         </ion-content>
     </ion-side-menu>
