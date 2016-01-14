@@ -19,9 +19,12 @@ angular.module('app.controllers', [])
   $scope.addNoteToStorage = function(noteTitle, noteContent) {
     var notesObj = JSON.parse(localStorage.getItem('notes')) || {};
     var timeStamp = Date.now();
+    var dateObj = new Date(timeStamp);
+    var date = dateObj.toDateString();
     notesObj[timeStamp] = {
       id: timeStamp,
       title: noteTitle,
+      date: date,
       note: noteContent
     };
     console.log("the new note is >>>>", notesObj);
