@@ -21,3 +21,11 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+#editbtn {
+  position: relative;
+  bottom: 2px;
+}
+
+textarea {
+  height: 100px;
+}
