@@ -3,7 +3,7 @@ angular.module('app.controllers', [])
 //---------------------------------//
 //----- ADD NOTE PAGE CONTROL -----//
 //---------------------------------//
-.controller('addCtrl', function($scope, $stateParams, $state) {
+.controller('addCtrl', function($scope, $stateParams, $state, $ionicPopup) {
   console.log("it's here");
 
   $scope.menuNotes;
@@ -16,20 +16,29 @@ angular.module('app.controllers', [])
   $scope.callNotes();
 
   $scope.addNoteToStorage = function(noteTitle, noteContent) {
-    var notesObj = JSON.parse(localStorage.getItem('notes')) || {};
-    var timeStamp = Date.now();
-    var dateObj = new Date(timeStamp);
-    var date = dateObj.toDateString();
-    notesObj[timeStamp] = {
-      id: timeStamp,
-      title: noteTitle,
-      date: date,
-      note: noteContent
-    };
-    console.log("the new note is >>>>", notesObj);
-    localStorage.setItem('notes', JSON.stringify(notesObj));
-    $scope.callNotes();
-    $state.go('menu.view-note', {timeStamp})
+    if (noteTitle === null || noteTitle === undefined || noteTitle === "") {
+      console.log("Note needs a title in order to save.");
+      $ionicPopup.alert({
+        title: 'Uh oh!',
+        template: 'Please enter a title for your note!'
+      })
+
+    } else {
+      var notesObj = JSON.parse(localStorage.getItem('notes')) || {};
+      var timeStamp = Date.now();
+      var dateObj = new Date(timeStamp);
+      var date = dateObj.toDateString();
+      notesObj[timeStamp] = {
+        id: timeStamp,
+        title: noteTitle,
+        date: date,
+        note: noteContent
+      };
+      console.log("the new note is >>>>", notesObj);
+      localStorage.setItem('notes', JSON.stringify(notesObj));
+      $scope.callNotes();
+      $state.go('menu.view-note', {timeStamp})
+    }
   };
 
 
