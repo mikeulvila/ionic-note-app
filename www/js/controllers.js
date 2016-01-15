@@ -56,6 +56,8 @@ angular.module('app.controllers', [])
   }
   editNote();
 
+
+
   $scope.saveNote = function() {
     $scope.menuNotes[$scope.noteToView.id] = {
       id: $scope.noteToView.id,
