@@ -1,0 +1,27 @@
+<ion-view title="{{ noteToView.title }}">
+    <ion-content id="view-content" overflow-scroll="true" padding="true" class="has-header">
+      <h6 class="note-date">{{noteToView.date}}</h6>
+      <div ng-hide="editMode">
+        <p>{{noteToView.note}}</p>
+      </div>
+      <form class="list" ng-show="editMode">
+          <label class="item item-input">
+              <span class="input-label">Title</span>
+              <input type="text" placeholder="" ng-model="noteToView.title">
+          </label>
+          <label class="item item-input" name="Note">
+              <span class="input-label">Note</span>
+              <textarea placeholder="" ng-model="noteToView.note"> </textarea>
+          </label>
+      </form>
+      <button class="other-btn button button-positive" ng-click="toggleEditMode()" ng-hide="editMode">
+        Edit
+      </button>
+      <button class="other-btn button button-balanced" ng-click="saveNote(); toggleEditMode()" ng-show="editMode">
+        Save
+      </button>
+      <button class="btn button button-assertive" ng-click="deleteNote()">
+        Delete
+      </button>
+    </ion-content>
+</ion-view>
