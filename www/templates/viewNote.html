@@ -1,9 +1,21 @@
-<ion-view title="{{noteToView.title}}">
+<ion-view title="{{ editMode ? 'Edit Note' : noteToView.title }}">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <h6>{{noteToView.date}}</h6>
+      <h6>{{noteToView.date}}</h6>
+      <div ng-hide="editMode">
         <p>{{noteToView.note}}</p>
-        <a class="button button-outline button-block button-positive" id="editbtn" href="#/side-menu21/edit-note/{{noteToView.id}}">
-          Edit Note
-        </a>
+      </div>
+      <form class="list" ng-show="editMode">
+          <label class="item item-input">
+              <span class="input-label">Title</span>
+              <input type="text" placeholder="" ng-model="noteToView.title">
+          </label>
+          <label class="item item-input" name="Note">
+              <span class="input-label">Note</span>
+              <textarea placeholder="" ng-model="noteToView.note"> </textarea>
+          </label>
+      </form>
+      <button class="button button-outline button-block" ng-class="{'button-positive': !editMode, 'button-balanced': editMode}" ng-click="editMode = !editMode">
+        {{ editMode ? 'Cancel' : 'Edit' }}
+      </button>
     </ion-content>
 </ion-view>
