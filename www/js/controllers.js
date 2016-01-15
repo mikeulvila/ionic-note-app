@@ -61,6 +61,7 @@ angular.module('app.controllers', [])
     delete notesObj[$stateParams.timeStamp];
     localStorage.setItem('notes', JSON.stringify(notesObj));
     $scope.$parent.callNotes();
+    $state.go('menu.page')
   }
 
   $scope.saveNote = function() {
