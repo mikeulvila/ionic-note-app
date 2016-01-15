@@ -1,14 +1,14 @@
-<ion-view title="Page">
+<ion-view title="Add Note">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <form class="list">
             <label class="item item-input">
                 <span class="input-label">Title</span>
-                <input type="text" placeholder="">
+                <input type="text" placeholder="" ng-model="note_title">
             </label>
             <label class="item item-input" name="Note">
-                <span class="input-label">Note</span><textarea placeholder=""> </textarea>
+                <span class="input-label">Note</span><textarea placeholder="" ng-model="note_content"> </textarea>
             </label>
         </form>
-        <button class="button button-balanced button-clear button-block ">Add note</button>
+        <button class="button button-balanced button-clear button-block" ng-click="addNoteToStorage(note_title, note_content); note_title = ''; note_content = ''">Add note</button>
     </ion-content>
 </ion-view>
