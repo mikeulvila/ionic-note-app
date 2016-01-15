@@ -58,16 +58,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directiv
       }
     })
 
-    // .state('menu.edit-note', {
-    //   url: '/edit-note/{noteid}',
-    //   views: {
-    //     'side-menu21': {
-    //       templateUrl: 'templates/editNote.html',
-    //       controller: 'editCtrl'
-    //     }
-    //   }
-    // })
-
     ;
 
   // if none of the above states are matched, use this as the fallback

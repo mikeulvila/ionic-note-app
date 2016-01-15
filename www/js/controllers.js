@@ -29,6 +29,7 @@ angular.module('app.controllers', [])
     console.log("the new note is >>>>", notesObj);
     localStorage.setItem('notes', JSON.stringify(notesObj));
     $scope.callNotes();
+    $state.go('menu.view-note', {timeStamp})
   };
 
 
