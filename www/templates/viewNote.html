@@ -1,4 +1,4 @@
-<ion-view title="{{ editMode ? 'Edit Note' : noteToView.title }}">
+<ion-view title="{{ noteToView.title }}">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
       <h6>{{noteToView.date}}</h6>
       <div ng-hide="editMode">
@@ -14,8 +14,11 @@
               <textarea placeholder="" ng-model="noteToView.note"> </textarea>
           </label>
       </form>
-      <button class="button button-outline button-block" ng-class="{'button-positive': !editMode, 'button-balanced': editMode}" ng-click="editMode = !editMode">
-        {{ editMode ? 'Cancel' : 'Edit' }}
+      <button class="button button-outline button-block button-positive" ng-click="toggleEditMode()" ng-hide="editMode">
+        Edit
+      </button>
+      <button class="button button-outline button-block button-balanced" ng-click="saveNote(); toggleEditMode()" ng-show="editMode">
+        Save
       </button>
     </ion-content>
 </ion-view>

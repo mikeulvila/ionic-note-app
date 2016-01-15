@@ -7,7 +7,6 @@ angular.module('app.controllers', [])
   console.log("it's here");
 
   $scope.menuNotes;
-  $scope.noteToView;
 
   $scope.callNotes = function() {
     console.log("called the callNotes()");
@@ -32,34 +31,42 @@ angular.module('app.controllers', [])
     $scope.callNotes();
   };
 
-  $scope.noteToView = $scope.menuNotes[$stateParams.timeStamp];
 
 })
 
 //---------------------------------//
 //----- EDIT NOTE CONTROL ---------//
 //---------------------------------//
-.controller('editCtrl', function($scope, $stateParams, $state) {
+.controller('viewCtrl', function($scope, $stateParams, $state) {
 
   var notesObj;
+  $scope.editMode = false;
+
+  $scope.toggleEditMode = function() {
+    if (!$scope.editMode) {
+      $scope.editMode = true;
+    } else if ($scope.editMode) {
+      $scope.editMode = false;
+    }
+  };
 
   function editNote() {
     notesObj = JSON.parse(localStorage.getItem('notes')) || {};
-    $scope.noteToEdit = notesObj[$stateParams.noteid];
+    $scope.noteToView = notesObj[$stateParams.timeStamp];
   }
   editNote();
 
   $scope.saveNote = function() {
-    notesObj[$stateParams.noteid] = {
-      id: $stateParams.noteid,
-      title: $scope.noteToEdit.title,
-      date: $scope.noteToEdit.date,
-      note: $scope.noteToEdit.note
+    $scope.menuNotes[$scope.noteToView.id] = {
+      id: $scope.noteToView.id,
+      title: $scope.noteToView.title,
+      date: $scope.noteToView.date,
+      note: $scope.noteToView.note
     }
-    localStorage.setItem('notes', JSON.stringify(notesObj));
+    localStorage.setItem('notes', JSON.stringify($scope.menuNotes));
     $scope.$parent.callNotes();
-
   }
+
 
 })
 

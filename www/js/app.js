@@ -53,20 +53,20 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.directiv
       views: {
         'side-menu21': {
           templateUrl: 'templates/viewNote.html',
-          controller: 'addCtrl'
+          controller: 'viewCtrl'
         }
       }
     })
 
-    .state('menu.edit-note', {
-      url: '/edit-note/{noteid}',
-      views: {
-        'side-menu21': {
-          templateUrl: 'templates/editNote.html',
-          controller: 'editCtrl'
-        }
-      }
-    })
+    // .state('menu.edit-note', {
+    //   url: '/edit-note/{noteid}',
+    //   views: {
+    //     'side-menu21': {
+    //       templateUrl: 'templates/editNote.html',
+    //       controller: 'editCtrl'
+    //     }
+    //   }
+    // })
 
     ;
 
