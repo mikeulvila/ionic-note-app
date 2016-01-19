@@ -9094,4 +9094,27 @@ a.button {
   bottom: 2px; }
 
 textarea {
-  height: 100px; }
+  height: 150px; }
+
+.btn {
+  position: absolute !important;
+  bottom: 15px !important;
+  right: 10% !important;
+  width: 35%; }
+
+.other-btn {
+  position: absolute !important;
+  bottom: 15px !important;
+  left: 10% !important;
+  width: 35%; }
+
+.note-date {
+  color: gray;
+  text-align: right; }
+
+#addNoteBtn > a {
+  /* menu item btn */
+  background-color: #33cd5f; }
+
+#addTheNoteBtn {
+  text-align: right; }

@@ -9,6 +9,6 @@
                 <span class="input-label">Note</span><textarea placeholder="" ng-model="note_content"> </textarea>
             </label>
         </form>
-        <button class="button button-balanced button-clear button-block" ng-click="addNoteToStorage(note_title, note_content); note_title = ''; note_content = ''">Add note</button>
+        <button id="addTheNoteBtn" class="button button-balanced" ng-click="addNoteToStorage(note_title, note_content); note_title = ''; note_content = ''">Add note</button>
     </ion-content>
 </ion-view>

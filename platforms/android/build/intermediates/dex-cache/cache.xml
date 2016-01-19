@@ -5,7 +5,7 @@
         jar="/Users/daniellehollis/workspace/ionic-note-app/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/classes.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="24d7e4f086acccc3ded6af134b738ec445d18f18">
+        sha1="0f5e69f2eb88f66730ab99fb6be1075259667535">
         <dex dex="/Users/daniellehollis/workspace/ionic-note-app/platforms/android/build/intermediates/pre-dexed/debug/classes-6315372a9e4a82ee3a40b8e0df2954003d7b1382.jar" />
     </item>
 
